@@ -36,40 +36,50 @@ class Area {
 
     destino(celula) {
         let vizinhos = this.contarVizinhos(celula);
-    
-        if (vizinhos.vivos == 8) {
-            celula.reviver();
-        }
-        
-        if (celula.viva) {
-            if (vizinhos.vivos < vizinhos.mortos) {
-                celula.reviver();
-                let tmpVizinhos = this.buscarVizinhos(celula);
 
-                tmpVizinhos.forEach((vizinho) => {
-                    vizinho.reviver();
-                });
-            } else {
-                if (celula.reviveu > parseInt(Math.random() * 100)) {
-                    celula.matar();
-                }
+        if (celula.viva) {
+            if (vizinhos.vivos < 2 || vizinhos.vivos > 3) {
+                celula.matar();
+            }
+        } else {
+            if (vizinhos.vivos === 3) {
+                celula.reviver();
             }
         }
-
-        // if (!celula.viva && vizinhos.mortos == 8) {
-        //     let vizinhos = this.buscarVizinhos(celula);
-        //     vizinhos.forEach(celula => {
-        //         celula.reviver();
-        //     });
+    
+        // if (vizinhos.vivos == 8) {
         //     celula.reviver();
-        //     return;
         // }
         
-        // if (celula.viva && (vizinhos.vivos < 2 || vizinhos.vivos > 6)) {
-        //     celula.matar();
-        // } else if (!celula.viva && vizinhos.vivos < 3) {
-        //     celula.reviver();
+        // if (celula.viva) {
+        //     if (vizinhos.vivos < vizinhos.mortos) {
+        //         celula.reviver();
+        //         let tmpVizinhos = this.buscarVizinhos(celula);
+
+        //         tmpVizinhos.forEach((vizinho) => {
+        //             vizinho.reviver();
+        //         });
+        //     } else {
+        //         if (celula.reviveu > parseInt(Math.random() * 100)) {
+        //             celula.matar();
+        //         }
+        //     }
         // }
+
+        // // if (!celula.viva && vizinhos.mortos == 8) {
+        // //     let vizinhos = this.buscarVizinhos(celula);
+        // //     vizinhos.forEach(celula => {
+        // //         celula.reviver();
+        // //     });
+        // //     celula.reviver();
+        // //     return;
+        // // }
+        
+        // // if (celula.viva && (vizinhos.vivos < 2 || vizinhos.vivos > 6)) {
+        // //     celula.matar();
+        // // } else if (!celula.viva && vizinhos.vivos < 3) {
+        // //     celula.reviver();
+        // // }
     }
 
     buscarCelula(linha, coluna) {
