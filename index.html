@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="dojo.js"></script>
+    <canvas id="life" width="1000" height="1000"></canvas>
+    <script type="text/javascript">
+
+        let tela = document.getElementById('life');
+        let mapa = new Area(tela, 100, 100);
+        setInterval(() => {
+            mapa.evoluir();
+
+        }, 80)
+    </script>
+
+
+</body>
+
+</html>
